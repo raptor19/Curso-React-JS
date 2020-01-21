@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import ConditionalSection from './sections/conditional';
 import Forms from './sections/forms';
+import Box from './sections/box';
+import Article from './sections/article';
 import cars from './data/cars.json';
 
 // Componente Contador
@@ -48,7 +50,7 @@ class ListaDeObjetos extends Component {
         <ul>
           {cars.map(car => {
             return (
-              <CarItem key={car.id} car={car}/>
+              <CarItem key={car.id} car={car} />
             )
           })}
         </ul>
@@ -74,27 +76,27 @@ class CarItem extends Component {
 // Practica de Eventos en React
 
 class Eventos extends Component {
-  
+
   //inicializo variables para mostrar las coordenadas del mouse
   constructor() {
     super()
-    this.state = { mouseX: 0 ,mouseY: 0 }    
+    this.state = { mouseX: 0, mouseY: 0 }
   }
   //Este metodo guarda las cordenadas del mouse 
   handleMouseMove = (e) => {
-    const { clientX,clientY } = e 
-    this.setState({mouseX: clientX,mouseY: clientY})
+    const { clientX, clientY } = e
+    this.setState({ mouseX: clientX, mouseY: clientY })
   }
 
   render() {
-    return(
+    return (
       <div>
-      <h2>Eventos en React</h2>
-      <button onClick={()=> alert("Soy un evento!")}>Practicando Eventos!</button>
-      <div onMouseMove={this.handleMouseMove}
-           style={{border: '1px,solid,#000',marginTop: 10,padding: 10}}>
-           <p>{this.state.mouseX},{this.state.mouseY}</p>
-      </div>
+        <h2>Eventos en React</h2>
+        <button onClick={() => alert("Soy un evento!")}>Practicando Eventos!</button>
+        <div onMouseMove={this.handleMouseMove}
+          style={{ border: '1px,solid,#000', marginTop: 10, padding: 10 }}>
+          <p>{this.state.mouseX},{this.state.mouseY}</p>
+        </div>
       </div>
     );
   }
@@ -103,14 +105,14 @@ class Eventos extends Component {
 // Practica de Eventos Sinteticos
 
 class EventosSinteticos extends Component {
-  handleClick (e) {
+  handleClick(e) {
     console.log(e)
     console.log(e.nativeEvent)
     alert("Eventos Sinteticos")
   }
-  
-  render () {
-    return(
+
+  render() {
+    return (
       <div>
         <h2>Eventos Sinteticos</h2>
         <button onClick={this.handleClick}>Eventos Sinteticos</button>
@@ -131,9 +133,29 @@ class App extends Component {
           <ConditionalSection />
           <Listas />
           <ListaDeObjetos />
-          <Eventos/>
-          <EventosSinteticos/>
-          <Forms/>
+          <Eventos />
+          <EventosSinteticos />
+          <Forms />
+          <Box>Primera Caja</Box>
+          <Box>Segunda Caja</Box>
+          <Article author='Cristian Almiron'
+            date={new Date().toLocaleDateString()}
+            title='Primer Articulo'>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+              Quibusdam totam et quae reiciendis eos amet, veritatis ab expedita 
+              praesentium sapiente enim necessitatibus? Consequatur molestiae nisi 
+              cumque esse quidem accusantium ullam!
+            </p>
+          </Article>
+          <Article author='Cristian Almiron'
+            date={new Date().toLocaleDateString()}
+            title='Segundo Articulo'>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+              Quibusdam totam et quae reiciendis eos amet, veritatis ab expedita 
+              praesentium sapiente enim necessitatibus? Consequatur molestiae nisi 
+              cumque esse quidem accusantium ullam!
+            </p>
+          </Article>
         </header>
       </div>
     );
