@@ -56,6 +56,8 @@ class ListaDeObjetos extends Component {
   }
 }
 
+// Componente Item de la lista de Autos
+
 class CarItem extends Component {
   render() {
     const { car } = this.props;
@@ -66,6 +68,55 @@ class CarItem extends Component {
       </li>
     );
   }
+}
+
+// Practica de Eventos en React
+
+class Eventos extends Component {
+  
+  //inicializo variables para mostrar las coordenadas del mouse
+  constructor() {
+    super()
+    this.state = { mouseX: 0 ,mouseY: 0 }    
+  }
+  //Este metodo guarda las cordenadas del mouse 
+  handleMouseMove = (e) => {
+    const { clientX,clientY } = e 
+    this.setState({mouseX: clientX,mouseY: clientY})
+  }
+
+  render() {
+    return(
+      <div>
+      <h2>Eventos en React</h2>
+      <button onClick={()=> alert("Soy un evento!")}>Practicando Eventos!</button>
+      <div onMouseMove={this.handleMouseMove}
+           style={{border: '1px,solid,#000',marginTop: 10,padding: 10}}>
+           <p>{this.state.mouseX},{this.state.mouseY}</p>
+      </div>
+      </div>
+    );
+  }
+}
+
+// Practica de Eventos Sinteticos
+
+class EventosSinteticos extends Component {
+  handleClick (e) {
+    console.log(e)
+    console.log(e.nativeEvent)
+    alert("Eventos Sinteticos")
+  }
+  
+  render () {
+    return(
+      <div>
+        <h2>Eventos Sinteticos</h2>
+        <button onClick={this.handleClick}>Eventos Sinteticos</button>
+      </div>
+    );
+  }
+
 }
 
 //Componente Principal
@@ -79,6 +130,8 @@ class App extends Component {
           <ConditionalSection />
           <Listas />
           <ListaDeObjetos />
+          <Eventos/>
+          <EventosSinteticos/>
         </header>
       </div>
     );
