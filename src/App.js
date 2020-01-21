@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ConditionalSection from './sections/conditional';
+import Forms from './sections/forms';
 import cars from './data/cars.json';
 
 // Componente Contador
@@ -132,6 +133,7 @@ class App extends Component {
           <ListaDeObjetos />
           <Eventos/>
           <EventosSinteticos/>
+          <Forms/>
         </header>
       </div>
     );
