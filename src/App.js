@@ -5,6 +5,9 @@ import Forms from './sections/forms';
 import Box from './sections/box';
 import Article from './sections/article';
 import cars from './data/cars.json';
+import Lifecicles from './sections/lifecicles';
+import FetchExample from './sections/fetch-example';
+import UpdateCicles from './sections/update-cicles';
 
 // Componente Contador
 // aumenta un contador por cada segundo
@@ -136,26 +139,29 @@ class App extends Component {
           <Eventos />
           <EventosSinteticos />
           <Forms />
+          <Lifecicles />
           <Box>Primera Caja</Box>
           <Box>Segunda Caja</Box>
           <Article author='Cristian Almiron'
             date={new Date().toLocaleDateString()}
             title='Primer Articulo'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-              Quibusdam totam et quae reiciendis eos amet, veritatis ab expedita 
-              praesentium sapiente enim necessitatibus? Consequatur molestiae nisi 
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Quibusdam totam et quae reiciendis eos amet, veritatis ab expedita
+              praesentium sapiente enim necessitatibus? Consequatur molestiae nisi
               cumque esse quidem accusantium ullam!
             </p>
           </Article>
           <Article author='Cristian Almiron'
             date={new Date().toLocaleDateString()}
             title='Segundo Articulo'>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-              Quibusdam totam et quae reiciendis eos amet, veritatis ab expedita 
-              praesentium sapiente enim necessitatibus? Consequatur molestiae nisi 
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Quibusdam totam et quae reiciendis eos amet, veritatis ab expedita
+              praesentium sapiente enim necessitatibus? Consequatur molestiae nisi
               cumque esse quidem accusantium ullam!
             </p>
           </Article>
+          <FetchExample/>
+          <UpdateCicles/>
         </header>
       </div>
     );

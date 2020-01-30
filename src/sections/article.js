@@ -1,9 +1,15 @@
 import React , { Component } from 'react';
+//import PropTypes from 'prop-types';
 
 export default class Article extends Component {
-    static propTypes = {
-        author: this.PropTypes.string.isRequired
+ 
+    constructor(props) {
+        super(props)
+        if (typeof props.author === undefined) {
+            console.warn("autor requerido!")
+        }
     }
+
     render() {
         const { author,children,date,title } = this.props
         return(
